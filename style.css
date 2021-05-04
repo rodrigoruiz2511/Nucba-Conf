@@ -1,0 +1,244 @@
+body {
+    font-size: 15px;
+}
+
+button {
+    background: var(--color-cheto);
+    border: 1px white solid;
+    padding: 10px 20px;
+    color: white;
+}
+
+img {
+    max-width: 100%;
+}
+
+
+/*-----------------------------WRAPPER---------------------------------------*/
+
+.wreapper {
+    display: grid;
+    grid-gap: 20px;
+}
+
+
+/* ------------------------------------TOP -----------------------------------*/
+
+.top {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-areas: 'principal principal entrada1' 'principal principal entrada2';
+}
+
+.principal {
+    grid-area: principal;
+    min-height: 400px;
+    background: white url("Archivos/modelo-computadora-escritorio-libro-montana-gradiente.jpg");
+    background-size: cover;
+    background-position: center;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+}
+
+.principal>* {
+    background: var(--color-cheto);
+    padding: 5px;
+}
+
+.entrada {
+    background: var(--color-cheto);
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.entrada p {
+    margin: 0;
+}
+
+.entrada1 {
+    grid-area: entrada1;
+}
+
+.entrada2 {
+    grid-area: entrada2;
+}
+
+.price {
+    font-size: 60px;
+    font-weight: 300;
+}
+
+
+/* ----------------------------------MENU -------------------------------*/
+
+.menu ul {
+    display: grid;
+    grid-gap: 10px;
+    padding: 0;
+    list-style: none;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    /* Se despliegan como una columna y con auto-fit y minMax dice que min 100px y respeta 1 fraccion de la pantalla */
+}
+
+.menu a {
+    background: var(--color-cheto);
+    display: block;
+    text-decoration: none;
+    padding: 10px;
+    text-align: center;
+    font-size: 20px;
+    text-transform: uppercase;
+    /*Todo en mayuscula*/
+}
+
+
+/* llama al atributo del boton del menu */
+
+[aria-controls="menu-list"] {
+    display: none;
+}
+
+
+/* -------------------------FEATURES------------------------------------------ */
+
+.features {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.feature {
+    background: white;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
+}
+
+.feature .icon {
+    font-size: 50px;
+}
+
+.feature p {
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.feature h3 {
+    background: var(--color-cheto);
+}
+
+
+/* ----------------------------ABOUT-------------------------------- */
+
+.about {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background: var(--color-cheto);
+    padding: 50px;
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    grid-gap: 20px;
+    align-items: center;
+}
+
+.about video {
+    width: 100%;
+}
+
+
+/* ---------------------------GALLERY------------------------------ */
+
+.gallery {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.gallery img {
+    width: 100%;
+}
+
+
+/* h2 ocupa desde el inicio hacia el final */
+
+
+/*Agrega contenido  antes y despues del texto con grid y con las propiedades before y after*/
+
+.gallery h2 {
+    grid-column: 1/-1;
+    color: peru;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    grid-gap: 20px;
+    align-items: center;
+}
+
+.gallery h2::before,
+.gallery h2::after {
+    display: block;
+    content: ' ';
+    height: 10px;
+    background: linear-gradient(to var(--direction, left), #1cd5e0, transparent);
+}
+
+.gallery h2::after {
+    --direction: right;
+}
+
+@media (max-width:1000px) {
+    .menu {
+        /*hace que quede al principio de la pantalla*/
+        order: -1;
+        perspective: 800px;
+    }
+    [aria-controls="menu-list"] {
+        display: block;
+        margin-bottom: 10px;
+    }
+    .menu ul {
+        transform: rotateX(90deg);
+        transition: all 0.5s;
+        /*se oculta*/
+        max-height: 0;
+        overflow: hidden;
+    }
+    /*cuando sea true todos lo ul tienen este comportamiento*/
+    [aria-expanded="true"]~ul {
+        display: grid;
+        max-height: 500px;
+        transform: rotateX(0);
+    }
+    /*para que se vean los iconos correspondientes si esta abierto o cerrado*/
+    [aria-expanded="false"] .close {
+        display: none;
+    }
+    [aria-expanded="true"] .close {
+        display: inline-block;
+    }
+    [aria-expanded="true"] .open {
+        display: none;
+    }
+}
+
+
+/* De acuerdo a la pantalla se ubican lasareas*/
+
+@media (max-width:700px) {
+    .top {
+        grid-template-areas: "principal principal" "entrada1 entrada2";
+    }
+    .about {
+        grid-template-columns: 1fr;
+        ;
+    }
+}
+
+@media (max-width:500px) {
+    .top {
+        grid-template-areas: "principal" "entrada1" "entrada2";
+    }
+}

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Responsive Website!!</title>
+</head>
+
+<body>
+    <div class="wreapper">
+        <div class="top">
+            <header class="principal">
+                <h1>NUCBA-CONF</h1>
+                <p>Somos Chetos.....</p>
+                <p>chetos malll</p>
+            </header>
+            <div class="entrada entrada1">
+                <p>Entrada</p>
+                <p class="price">$500</p>
+                <p>VIP + 📸 FOTO CON FACU</p>
+            </div>
+            <div class="entrada entrada2">
+                <p>Entrada</p>
+                <p class="price">$200</p>
+                <p>AL FONDO y 🍺🍺 CON LUCHO</p>
+            </div>
+        </div>
+        <nav class="menu">
+            <button aria-expanded="false" aria-controls="menu-list">
+                <span class="open"> &#9776;</span>
+                <span class="close">&#9747;</span>
+                Menu
+            </button>
+            <ul id="menu-list">
+                <li>
+                    <a href="">About</a>
+                </li>
+                <li>
+                    <a href="">Speakers</a>
+                </li>
+                <li>
+                    <a href="">Precios</a>
+                </li>
+                <li>
+                    <a href="">Code</a>
+                </li>
+                <li>
+                    <a href="">VIP</a>
+                </li>
+            </ul>
+        </nav>
+
+        <section class="features">
+            <div class="feature">
+                <span class="icon">🍔 </span>
+                <h3>Comida</h3>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi, assumeda.
+                </p>
+            </div>
+            <div class="feature">
+                <span class="icon">🍺 </span>
+                <h3>Comida</h3>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi, assumeda.
+                </p>
+            </div>
+            <div class="feature">
+                <span class="icon">💻 </span>
+                <h3>Comida</h3>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi, assumeda.
+                </p>
+            </div>
+            <div class="feature">
+                <span class="icon">🎵 </span>
+                <h3>Comida</h3>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi, assumeda.
+                </p>
+            </div>
+        </section>
+
+        <section class="about">
+            <video src="./Archivos/Vivaldi  Violin Concerto in A Minor.avi" controls loop></video>
+            <div class="about__details">
+                <h2>VAMOS A CODEAR</h2>
+                <p>Slin Profile, easy to hold and loaded with cheese.</p>
+                <p>This is the one you have been waiting fos</p>
+                <button>Info plisss &#10142;</button>
+            </div>
+        </section>
+
+        <section class="gallery">
+            <h2>Instant Grams</h2>
+            <img src="https://source.unsplash.com/random/201x201" alt="">
+            <img src="https://source.unsplash.com/random/202x202" alt="">
+            <img src="https://source.unsplash.com/random/203x203" alt="">
+            <img src="https://source.unsplash.com/random/204x204" alt="">
+            <img src="https://source.unsplash.com/random/205x205" alt="">
+            <img src="https://source.unsplash.com/random/206x206" alt="">
+            <img src="https://source.unsplash.com/random/207x207" alt="">
+            <img src="https://source.unsplash.com/random/207x207" alt="">
+            <img src="https://source.unsplash.com/random/207x207" alt="">
+            <img src="https://source.unsplash.com/random/207x207" alt="">
+        </section>
+    </div>
+    <script>
+        /*guarda la variable arial-expanded en navButton*/
+        const navButton = document.querySelector("button[aria-expanded]");
+        /*crea una funcion cuando Target(click), la varaible aria-expanded se lo hace booleable y le da comportamiento si esta true o false*/
+        function toggleNav({
+            target
+        }) {
+            /*se lo hace boobleano*/
+            const expandir = target.getAttribute("aria-expanded") === "true" || false;
+            console.log(typeof expandir);
+            /*le cambia el valor de la variable*/
+            navButton.setAttribute("aria-expanded", !expandir);
+        }
+        /*agrega evento*/
+        navButton.addEventListener("click", toggleNav);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,8 @@
+Nucba conf se ve 
+-listas
+-botones
+-Galeria
+-Manu
+-grid
+-JavaScrits
+-
